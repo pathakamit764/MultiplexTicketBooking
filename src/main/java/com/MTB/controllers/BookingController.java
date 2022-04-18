@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.MTB.*;
 import com.MTB.entites.Booking;
-import com.cinema.dto.BookingDTO;
-import com.cinema.dtotoentity.BookingDtoToEntity;
-import com.cinema.exception.BookingNotAddedException;
-import com.cinema.exceptionhandler.Constants;
-import com.cinema.service.BookingService;
+
+//import com.cinema.dto.BookingDTO;
+//import com.cinema.dtotoentity.BookingDtoToEntity;
+//import com.cinema.exception.BookingNotAddedException;
+//import com.cinema.exceptionhandler.Constants;
+//import com.cinema.service.BookingService;
 
 @RestController
 public class BookingController {
@@ -24,12 +26,12 @@ public class BookingController {
 	  
 	  @CrossOrigin
 	  @PostMapping("/addbooking")
-	  public String addBooking(@RequestBody BookingDTO booking) throws BookingNotAddedException {
+	  public String addBooking(@RequestBody Booking booking) throws com.MTB.exception.BookingNotAddedException {
 		  boolean isBookingAdded=bookingService.addBooking(bookingDtoToEntity.convertbookingDtoToEntity(booking));
 		  if(isBookingAdded) {
 			  return Constants.SUCCESS;
 		  }else {
-			  throw new BookingNotAddedException();
+			  throw new com.MTB.exception.BookingNotAddedException();
 		  }
 		  }
 	@PostMapping("/cancelBooking")
