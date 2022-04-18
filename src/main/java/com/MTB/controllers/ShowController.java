@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinema.dto.ShowsDTO;
-import com.cinema.dtotoentity.ShowsDtoToEntity;
-import com.cinema.entity.Shows;
-import com.cinema.exception.ShowException;
-import com.cinema.service.ShowService;
+import com.MTB.services.*;
+import com.MTB.DTOtoEntity.*;
+import com.MTB.dto.ShowsDTO;
+import com.MTB.entites.Shows;
+import com.MTB.exception.ShowException;
+
+
 @RestController
 public class ShowController {
 	@Autowired

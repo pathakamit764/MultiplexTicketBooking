@@ -1,14 +1,14 @@
 package com.MTB.DTOtoEntity;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Component;
 
+import com.MTB.dto.UsersDTO;
 import com.MTB.entites.Users;
 
 
 
 @Component
 public class UserDtoToEntity {
-   public Users usersConvertUsersDtoEntity(User usersDTO) {
+   public Users usersConvertUsersDtoEntity(UsersDTO usersDTO) {
 	   Users us =new Users();
 	   us.setId(usersDTO.getId());
 	   us.setName(usersDTO.getName());

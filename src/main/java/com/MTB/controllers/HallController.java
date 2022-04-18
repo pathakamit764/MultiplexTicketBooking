@@ -4,10 +4,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinema.dto.HallDTO;
-import com.cinema.dtotoentity.HallDtoToEntity;
-import com.cinema.entity.Hall;
-import com.cinema.service.HallService;
+import com.MTB.services.*;
+import com.MTB.dto.*;
+import com.MTB.entites.Hall;
+import com.MTB.DTOtoEntity.*;
+
 @RestController
 public class HallController {
 	@Autowired

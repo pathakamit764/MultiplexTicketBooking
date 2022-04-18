@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cinema.dao.MoviesRepository;
-import com.cinema.dao.ShowsRepository;
-import com.cinema.dao.UsersRepository;
-import com.cinema.entity.Movies;
+import com.MTB.entites.Movies;
+import com.MTB.repository.MoviesRepository;
+import com.MTB.repository.ShowsRepository;
+import com.MTB.repository.UsersRepository;
+
+
 
 @SpringBootTest
 class TicketBookingApplicationTests {

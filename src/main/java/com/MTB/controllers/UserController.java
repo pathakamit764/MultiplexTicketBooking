@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinema.dto.UsersDTO;
-import com.cinema.dtotoentity.UserDtoToEntity;
-import com.cinema.entity.UserLogin;
-import com.cinema.entity.Users;
-import com.cinema.exception.EmailAlreadyExistException;
-import com.cinema.exception.EmailIdFormatException;
-import com.cinema.exception.PasswordNotMatchException;
-import com.cinema.exception.ShowException;
-import com.cinema.exception.WrongCredentialsException;
-import com.cinema.service.UserService;
+import com.MTB.DTOtoEntity.UserDtoToEntity;
+import com.MTB.dto.UsersDTO;
+import com.MTB.entites.UserLogin;
+import com.MTB.entites.Users;
+import com.MTB.exception.EmailAlreadyExistException;
+import com.MTB.exception.EmailIdFormatException;
+import com.MTB.exception.PasswordNotMatchException;
+import com.MTB.exception.ShowException;
+import com.MTB.exception.WrongCredentialsException;
+import com.MTB.services.*;
+
 
 @RestController
 public class UserController {

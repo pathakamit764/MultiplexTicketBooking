@@ -12,10 +12,8 @@ import com.MTB.exception.ShowException;
 import com.MTB.exception.WrongCredentialsException;
 
 @RestControllerAdvice
-public class GlobalHandler extends com.MTB.exception
-{/**
-	 * 
-	 */
+public class GlobalHandler extends Exception
+{
 	private static final long serialVersionUID = 1L;
 	@ExceptionHandler(WrongCredentialsException.class)
 	public ResponseEntity<Object> handleWrongCredentialsException(WrongCredentialsException exception) {

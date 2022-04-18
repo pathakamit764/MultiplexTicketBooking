@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cinema.dto.SeatTypeDTO;
-import com.cinema.dtotoentity.SeatTypeDtoToEntity;
-import com.cinema.exceptionhandler.Constants;
-import com.cinema.service.SeatTypeService;
+import com.MTB.services.*;
+import com.MTB.DTOtoEntity.*;
+import com.MTB.dto.SeatTypeDTO;
+import com.MTB.exceptionHandler.Constants;
+
 
 @RestController
 public class SeatTypeController {
