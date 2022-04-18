@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.MTB.entites.Booking;
 import com.cinema.dto.BookingDTO;
 import com.cinema.dtotoentity.BookingDtoToEntity;
 import com.cinema.exception.BookingNotAddedException;
@@ -17,7 +18,7 @@ import com.cinema.service.BookingService;
 @RestController
 public class BookingController {
 	@Autowired
-      BookingService  bookingService;
+      Booking  bookingService;
 	@Autowired
 	BookingDtoToEntity bookingDtoToEntity;
 	  
