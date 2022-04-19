@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.MTB.services.*;
-import com.MTB.DTOtoEntity.*;
-import com.MTB.dto.ShowsDTO;
 import com.MTB.entites.Shows;
 import com.MTB.exception.ShowException;
 
@@ -21,12 +19,12 @@ import com.MTB.exception.ShowException;
 public class ShowController {
 	@Autowired
 	ShowService showservice;
-	@Autowired
-	ShowsDtoToEntity showsDtoToEntity;
+//	@Autowired
+//	ShowsDtoToEntity showsDtoToEntity;
 	@CrossOrigin
 	@PostMapping(value = "/addshow")
-	public Shows addMovie(@RequestBody ShowsDTO shows) {
-		return showservice.addShow(showsDtoToEntity.convertShowsDtoToEntity(shows));
+	public Shows addMovie(@RequestBody Shows shows) {
+		return showservice.addShow(shows);
 	}
 	
 	@GetMapping("/showById/{showId}")

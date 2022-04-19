@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MTB.DTOtoEntity.UserDtoToEntity;
-import com.MTB.dto.UsersDTO;
 import com.MTB.entites.UserLogin;
 import com.MTB.entites.Users;
 import com.MTB.exception.EmailAlreadyExistException;
@@ -17,7 +15,7 @@ import com.MTB.exception.EmailIdFormatException;
 import com.MTB.exception.PasswordNotMatchException;
 import com.MTB.exception.ShowException;
 import com.MTB.exception.WrongCredentialsException;
-import com.MTB.services.*;
+import com.MTB.services.UserService;
 
 
 @RestController
@@ -25,30 +23,30 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
-	@Autowired
-	UserDtoToEntity userDtoToEntity;
+//	@Autowired
+//	UserDtoToEntity userDtoToEntity;
     @CrossOrigin
 	@PostMapping("/usersregistration")
-	public Users registerUser(@RequestBody UsersDTO userDto) throws EmailAlreadyExistException, PasswordNotMatchException, EmailIdFormatException {
-		String tempEmailId = userDto.getEmailId();
+	public Users registerUser(@RequestBody Users user) throws EmailAlreadyExistException, PasswordNotMatchException, EmailIdFormatException {
+		String tempEmailId = user.getEmailId();
 		if (tempEmailId != null && !"".equals(tempEmailId)) {
 			Users userObj = service.fetchUserByEmailId(tempEmailId);
 			if (userObj != null) {
 				throw new EmailAlreadyExistException("User with " + tempEmailId + " is already Exist");
 			}
 		}
-		String tempPassward = userDto.getPassward();
-		String tempCPassward = userDto.getcPassward();
+		String tempPassward = user.getPassward();
+		String tempCPassward = user.getcPassward();
 		if(tempCPassward != null && !tempCPassward.equals(tempPassward)) {
 		throw new PasswordNotMatchException();
 		}
-		if(userDto.getEmailId().isEmpty() || userDto.getEmailId().isBlank() || !userDto.getEmailId().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
+		if(user.getEmailId().isEmpty() || user.getEmailId().isBlank() || !user.getEmailId().matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
 			throw new EmailIdFormatException("Email Id is Wrong format");
 			}
 
-		Users userObj = userDtoToEntity.usersConvertUsersDtoEntity(userDto);
 		
-		return service.saveUser(userObj);
+		
+		return service.saveUser(user);
 		
 	}
     @CrossOrigin

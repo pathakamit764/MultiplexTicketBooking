@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.MTB.services.*;
-import com.MTB.DTOtoEntity.*;
-import com.MTB.dto.SeatTypeDTO;
+import com.MTB.entites.SeatType;
 import com.MTB.exceptionHandler.Constants;
 
 
@@ -15,13 +14,13 @@ import com.MTB.exceptionHandler.Constants;
 public class SeatTypeController {
 	@Autowired
 	SeatTypeService seatTypeService;
-	@Autowired
-	SeatTypeDtoToEntity seatTypeDtoToEntity;
+//	@Autowired
+//	SeatTypeDtoToEntity seatTypeDtoToEntity;
 
 	@PostMapping("/addSeatType")
-	public String addSeatType(@RequestBody SeatTypeDTO seattype) {
+	public String addSeatType(@RequestBody SeatType seattype) {
 		
-		boolean isSeatAdded = seatTypeService.addSeatType(seatTypeDtoToEntity.convertSeatTypeDtoToEntity(seattype));
+		boolean isSeatAdded = seatTypeService.addSeatType(seattype);
 		if (isSeatAdded) {
 			return Constants.SUCCESS;
 		} else {

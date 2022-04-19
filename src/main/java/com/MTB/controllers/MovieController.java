@@ -9,24 +9,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MTB.DTOtoEntity.*;
-import com.MTB.dto.MoviesDTO;
 import com.MTB.entites.Movies;
 import com.MTB.services.*;
 
 @RestController
 public class MovieController {
-	@Autowired
-	MovieDtoToEntity movieDtoToEntity;
+//	@Autowired
+//	MovieDtoToEntity movieDtoToEntity;
 
 	@Autowired
 	MovieService movieservice;
 
 	@CrossOrigin
 	@PostMapping(value = "/addmovie")
-    public Movies addMovie(@RequestBody MoviesDTO movies) {
+    public Movies addMovie(@RequestBody Movies movies) {
 
-		return movieservice.addMovie(movieDtoToEntity.convertMovieDtoToEntity(movies));
+		return movieservice.addMovie(movies);
 	}
     @CrossOrigin
 	@GetMapping("/getAllMovies")

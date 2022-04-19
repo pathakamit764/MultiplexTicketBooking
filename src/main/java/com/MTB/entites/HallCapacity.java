@@ -1,5 +1,6 @@
 package com.MTB.entites;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +15,10 @@ public class HallCapacity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer hallCapacityId;
-	@ManyToOne
+	@ManyToOne(cascade =CascadeType.ALL)
 	@JoinColumn(name = "hall_id")
 	private Hall halls;
-	@ManyToOne
+	@ManyToOne(cascade =CascadeType.ALL)
 	@JoinColumn(name = "seat_type_id")
 	private SeatType seatType;
 	private Integer seatCount;

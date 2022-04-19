@@ -8,24 +8,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.MTB.DTOtoEntity.BookingDtoToEntity;
-import com.MTB.dto.BookingDTO;
+import com.MTB.entites.Booking;
 import com.MTB.exception.BookingNotAddedException;
 import com.MTB.exceptionHandler.Constants;
-import com.MTB.services.*;
+import com.MTB.services.BookingService;
 
 @RestController
 public class BookingController {
 	@Autowired
       BookingService  bookingService;
-	@Autowired
-	BookingDtoToEntity bookingDtoToEntity;
+//	@Autowired
+//	BookingDtoToEntity bookingDtoToEntity;
 	  
 	  @CrossOrigin
 	  @PostMapping("/addbooking")
-	  public String addBooking(@RequestBody BookingDTO booking) throws BookingNotAddedException {
-		  boolean isBookingAdded=bookingService.addBooking(bookingDtoToEntity.convertbookingDtoToEntity(booking));
+	  public String addBooking(@RequestBody Booking booking) throws BookingNotAddedException {
+		  boolean isBookingAdded=bookingService.addBooking(booking);
 		  if(isBookingAdded) {
 			  return Constants.SUCCESS;
 		  }else {
